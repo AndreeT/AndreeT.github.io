@@ -4,27 +4,26 @@ var missingCredits;
 var calculateButton = document.getElementById("calculate");
 var resultBox = document.getElementById("result");
 var generateButton = document.getElementById("generateBoxes");
-var numberOfBoxes=0;
-var sumOfCredits=0;
-
+var numberOfBoxes = 0 ;
+var someOfCredits = 0 ;
 init();
 
 function init() {
-    generateButton.addEventListener("click", generate); //se apeleaza o functie in momentul apasarii click-ului
-    calculateButton.addEventListener("click", calculateCredits);//event-handlere
+    generateButton.addEventListener("click", generate);
+    calculateButton.addEventListener("click", calculateCredits);
 }
 
 function createInputBox(elementID) {
-
     var inputContainerElement = document.getElementById("inputContainer");
 
     var inputElem = document.createElement("input");
     inputElem.id = elementID;
 
-    var labelElem=document.createElement("label");
+    var labelElem = document.createElement("label");
     var text = document.createTextNode("Credit");
     labelElem.appendChild(text);
     labelElem.appendChild(inputElem);
+
 
     inputContainerElement.appendChild(labelElem);
 
@@ -39,22 +38,17 @@ function createBoxes(numberOfBoxes) {
 }
 
 function generate() {
-    numberOfBoxes = document.getElementById("numberOfBoxes").value;//document=obiectul cel mai sus din dom(ceva cu html)
+     numberOfBoxes = document.getElementById("numberOfBoxes").value;
     createBoxes(numberOfBoxes);
 }
 
-function calculateCredits(){
-
-    for(var i=1;i<=numberOfBoxes;i++)
-    {
-
-        var inputElemValue= document.getElementById("input"+i).value;
-        sumOfCredits+=parseInt(inputElemValue);
+function calculateCredits() {
+    for (var i=1; i <= numberOfBoxes; i++) {
+        var inputElemValue = document.getElementById("input" + i).value;
         console.log(inputElemValue);
-
+        someOfCredits +=  parseInt(inputElemValue) ;
     }
-    console.log(sumOfCredits);
-
+console.log(someOfCredits);
 
 }
 
